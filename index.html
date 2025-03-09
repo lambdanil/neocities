@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>lambdanil</title>
+	<!-- The style.css file allows you to change the look of your web pages.
+             If you include the next line in all your web pages, they will all share the same look.
+             This makes it easier to make new pages for your site. -->
+	<link href="style.css" rel="stylesheet" type="text/css" media="all">
+	<link rel="icon" href="lambda.png">
+	<script>
+	 function show_projectpage(current, nextpage) {
+	     document.getElementById("projects" + current).style.display='none';
+	     document.getElementById("projects" + nextpage).style.display='block';
+	     return false;
+	 }
+	 
+	 function show(shown, button) {
+	     const buttons = ["home_button", "media_button", "gallery_button", "projects1_button"];
+	     const pages = ["home", "media", "gallery", "projects1"];
+	     var pageslen = pages.length;
+	     for (var i = 0; i < pageslen; i++) {
+		 document.getElementById(pages[i]).style.display='none';
+	     }
+	     var buttonslen = buttons.length;
+	     for (var i = 0; i < buttonslen; i++) {
+		 document.getElementById(buttons[i]).classList.remove('crt');
+	     }
+	     document.getElementById(button).classList.add('crt');
+	     document.getElementById(shown).style.display='block';
+	     document.title = "lambdanil - " + shown
+	     return false;
+	 }
+
+	 function seeklink() {
+	     var url = window.location;
+	     let params = new URLSearchParams(url.search);
+	     let page = params.get('page');
+	     console.log(page);
+	     if (page.isEmpty) {
+		 page = "home";
+	     }
+	     console.log(page);
+	     show(page, page + "_button");
+
+	     return false;
+	 }
+	 
+	</script>
+    </head>
+    <body onload="seeklink()" class="crt2">
+
+        <div id="container"><div id="topBar"><img src="navilogo.webp">&nbsp;no matter where you are, everyone is always connected</div><div id="header" style="height: 189px;"></div>
+            <div id="headerArea">
+                
+                <nav id="navbar" style="margin-bottom: 0px;">
+                    <ul class="">
+			<li class="crt" id="home_button"><a href="?page=home" onclick="return show('home', 'home_button');">home</a></li>
+			<li id="media_button"><a href="?page=media" onclick="return show('media', 'media_button');">media</a></li>
+			<li id="gallery_button"><a href="?page=gallery" onclick="return show('gallery', 'gallery_button');">gallery</a></li>
+			<li id="projects1_button"><a href="?page=projects1" onclick="return show('projects1', 'projects1_button');">projects</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div id="flex">
+                
+                <main class="rainbow">
+		    <div id="home">
+			<h1>welcome</h1>
+			<p>You've reached my personal website. Whether you are planning to stay here or not, I wish you safe internet travels.</p>
+			&nbsp;
+			<h2>about me</h2>
+			<p>I'm a programmer, a software hacker (in the original sense of the word) and a free software enthusiast.</p>
+			<p>I go by a few different names online. These include <strong>nil</strong>, <strong>lain</strong>, as well as the most commonly used one, <strong>lynn</strong>.</p>
+			&nbsp;
+			<p>You may find me on a variety of platforms, though I mainly use Discord for communication. You'll usually find me under the nick <strong>lambdanil</strong>.</p>
+			<!-- <p><img style="height: 150px;" src="ran.jpg"></p> -->
+			
+		    </div>
+		    <div id="media" style="display:none">
+			<p>This is a list of some of my favorite pieces of media.</p>
+			<p>
+			    <h2>anime</h2>
+			    <ul>
+				<li><strong><a href="https://myanimelist.net/anime/339/Serial_Experiments_Lain">serial experiments lain</a></strong></li>
+				<li><strong><a href="https://myanimelist.net/anime/26/Texhnolyze">texhnolyze</a></strong></li>
+				<li><strong><a href="https://myanimelist.net/anime/387/Haibane_Renmei">haibane renmei</a></strong></li>
+				<li><strong><a href="https://myanimelist.net/anime/2167/Clannad">clannad</a></strong></li>
+				<li><string><a href="https://myanimelist.net/anime/437/Perfect_Blue">perfect blue</a></strong></li>
+			    </ul>
+			</p>
+
+		    </div>
+		    <div id="gallery" style="display:none">
+			<p>Here is a gallery of the profile pictures and wallpapers I have used in the past or still use. I do not own these images.</p>
+			<h2>profile pictures</h2>
+			<img style="height: 100px" src="ran.jpg">
+			<img style="height: 100px" src="ranran.png">
+			<img style="height: 100px" src="lain-bear-suit.png">
+			<h2>wallpapers</h2>
+			<img style="height: 100px" src="lainwall.jpeg">
+			<img style="height: 100px" src="ranwall.jpg">
+			<h2>miscellaneous</h2>
+			<img style="height: 100px" src="makemesadmakememad.jpg">
+			
+		    </div>
+		    <div id="projects1" style="display:none">
+			<p>These are some of my more interesting projects.</p>
+			<br>
+			<strong><a href="https://github.com/lambdanil/emacs-stuff">system config</a></strong>
+			<br><br>
+			<div class="box">
+			    This is my full system configuration, separated into individual modules. It's fully written in <strong>org-mode</strong>, and includes 
+			    my Emacs config.
+			</div>
+			<br><br>
+			<strong><a href="https://github.com/lambdanil/astOS">astOS</a></strong>
+			<br><br>
+			<div class="box">
+			    An immutable Linux meta-distribution. It's based on Arch Linux, and uses the btrfs filesystem to implement transactional, atomic updates. 
+			    It is currently unmaintained.
+			</div>
+			<br><br>
+			<strong><a href="https://github.com/lambdanil/not-clos">not-clos</a></strong>
+			<br><br>
+			<div class="box">
+			    An OOP implementation for Common Lisp, made entirely using macros. It is very slow and impractical, but was a fun programming exercise.
+			</div>
+			<br><br><br><br><br>
+			<a href="#" onclick="return show_projectpage('1', '2');">next page >></a>
+		    </div>
+		    <div id="projects2" style="display:none">
+			<p>These are some of my more interesting projects.</p>
+			<br>
+			
+			<strong><a href="https://github.com/lambdanil/wordle-solver">wordle solver</a></strong>
+			<br><br>
+			<div class="box">
+			    Exactly what it sounds like. A small, CLI driven wordle solving bot. Extremely small and written in python.<br><br>
+			    Sadly the dictionary I use isn't perfectly 1:1 with the full wordle dictionary, so it doesn't figure out some words :/.
+			</div>
+			<br><br>
+			
+			
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<a href="#" onclick="return show_projectpage('2', '1');">previous page <<</a>
+		    </div>
+                </main>
+                
+		<aside id="rightSidebar" style="margin-left: 0px;"><h2>links<br></h2>
+		    <div class="box">
+			<a href="https://lambdanil.neocities.org">homepage</a><br>
+			<a href="https://github.com/lambdanil">github</a><br>
+			<a href="https://last.fm/user/lambdanil">last.fm</a><br>
+			<a href="https://news.ycombinator.com/user?id=lambdanil">hn</a><br>
+			<a href="https://steamcommunity.com/id/lambdanil/">steam</a><br>
+		    </div>
+		    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="linuxnow.jpg">
+		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="debian.gif">
+		</aside>
+
+		<aside id="leftSidebar" style="margin-right: 0px;">
+		    <h2>reach me</h2>
+		    <div class="box">
+			<strong>discord</strong><br>@lambdanil
+			<strong>signal</strong><br>@lainiwakura.58
+		    </div>
+		    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		    <img src="luvinternet.gif">
+		    <img src="tool.gif">
+		    <img src="chillpill.gif">
+		    <img src="jinkieblinkie.gif">
+		</aside></div>
+            
+            <footer id="footer" style="margin-top: 0px;"><strong>(λx . x)nil</strong></footer></div>
+        
+
+	
+    </body>
+</html>
