@@ -10,13 +10,29 @@
 	<link href="style.css" rel="stylesheet" type="text/css" media="all">
 	<link rel="icon" href="lambda.png">
 	<script>
-	 function show_projectpage(current, nextpage) {
-	     document.getElementById("projects" + current).style.display='none';
+	 /* I deserve nothing but pain for the abomination below */
+	 const projectsnum = 2;
+	 
+	 function show_projectpage(nextpage) {
+	     for (var i = 1; i < projectsnum+1; i++) {
+		 document.getElementById("projects" + i).style.display='none';
+	     }
 	     document.getElementById("projects" + nextpage).style.display='block';
 	     return false;
 	 }
+
+	 function hide_projects() {
+	     for (var i = 1; i < projectsnum+1; i++) {
+		 document.getElementById("projects" + i).style.display='none';
+	     }
+	 }
+
+	 function hide_subpages() {
+	     hide_projects();
+	 }
 	 
 	 function show(shown, button) {
+	     hide_subpages();
 	     const buttons = ["home_button", "media_button", "gallery_button", "projects1_button"];
 	     const pages = ["home", "media", "gallery", "projects1"];
 	     var pageslen = pages.length;
@@ -68,32 +84,60 @@
                 
                 <main class="rainbow">
 		    <div id="home">
-			<h1>welcome</h1>
-			<p>You've reached my personal website. Whether you are planning to stay here or not, I wish you safe internet travels.</p>
-			&nbsp;
+			<h1>welcome <div class="textpulse">🩷</div></h1>
+			<div class="box"><p>
+			    You've reached my homepage. Whether you are planning to stay here or not, I wish you safe internet travels.
+			    &nbsp;</p>
+			</div>
 			<h2>about me</h2>
-			<p>I'm a programmer, a software hacker (in the original sense of the word) and a free software enthusiast.</p>
-			<p>I go by a few different names online. These include <strong>nil</strong>, <strong>lain</strong>, as well as the most commonly used one, <strong>lynn</strong>.</p>
-			&nbsp;
-			<p>You may find me on a variety of platforms, though I mainly use Discord for communication. You'll usually find me under the nick <strong>lambdanil</strong>.</p>
+			<div class="box">
+			    I'm a programmer, a software hacker (in the original sense of the word) and a free software enthusiast.</p><br>
+			    <p>I go by a few different names online. These include <strong>nil</strong>, <strong>lain</strong>, as well as the most commonly used one, <strong>lynn</strong>.</p><br>
+			    &nbsp;
+			    <p>You may find me on a variety of platforms, though I mainly use Discord for communication.
+				You'll find me under the nick <strong>lambdanil</strong>.</p>
+			    Feel free to shoot me a DM :)
+			</div>
+			<h2>guestbook 📔</h2>
+			<div class="box" align="center">
+			    <iframe style="display:block;" src="https://lambdanil.atabook.org/" title="guestbook"></iframe>
+			</div>
+			<br>
+			<p>I recommend using this website on a desktop computer with a resolution of at least 1920x1080.</p>
 			<!-- <p><img style="height: 150px;" src="ran.jpg"></p> -->
 			
 		    </div>
 		    <div id="media" style="display:none">
+			<br>
 			<p>This is a list of some of my favorite pieces of media.</p>
 			<p>
 			    <h2>anime</h2>
-			    <ul>
-				<li><strong><a href="https://myanimelist.net/anime/339/Serial_Experiments_Lain">serial experiments lain</a></strong></li>
-				<li><strong><a href="https://myanimelist.net/anime/26/Texhnolyze">texhnolyze</a></strong></li>
-				<li><strong><a href="https://myanimelist.net/anime/387/Haibane_Renmei">haibane renmei</a></strong></li>
-				<li><strong><a href="https://myanimelist.net/anime/2167/Clannad">clannad</a></strong></li>
-				<li><string><a href="https://myanimelist.net/anime/437/Perfect_Blue">perfect blue</a></strong></li>
-			    </ul>
+			    <div class="box">
+				<strong><a href="https://myanimelist.net/anime/339/Serial_Experiments_Lain">serial experiments lain</a></strong><br>
+				<div style="margin-left: 10px; margin-top: 2px;"><p>a wonderful exploration of the internet and how it relates to the real world</p></div><br>
+				<strong><a href="https://myanimelist.net/anime/26/Texhnolyze">texhnolyze</a></strong><br>
+				<div style="margin-left: 10px; margin-top: 2px;"><p>a bleak depiction of the downfall of humanity</p></div><br>
+				<strong><a href="https://myanimelist.net/anime/387/Haibane_Renmei">haibane renmei</a></strong><br>
+				<div style="margin-left: 10px; margin-top: 2px;"><p>an emotional story about overcoming trauma</p></div><br>
+				<strong><a href="https://myanimelist.net/anime/2167/Clannad">clannad</a></strong><br>
+				<div style="margin-left: 10px; margin-top: 2px;"><p>a slice of life and an emotional rollercoaster</p></div><br>
+				<strong><a href="https://myanimelist.net/anime/437/Perfect_Blue">perfect blue</a></strong><br>
+				<div style="margin-left: 10px; margin-top: 2px;"><p>I don't even know how to describe this film. It's awesome</p></div><br>
+				<strong><a href="https://myanimelist.net/anime/66/Azumanga_Daiou_The_Animation">azumanga daioh</a></strong><br>
+				<div style="margin-left: 10px; margin-top: 2px;"><p>lots of silly, light hearted fun</p></div>
+			    </div>
+			</p>
+			<p>
+			    <h2>shows</h2>
+			    <div class="box">
+				<strong><a href="https://www.imdb.com/title/tt0141842/">the sopranos</a></strong><br><br>
+				<strong><a href="https://www.imdb.com/title/tt4158110/">mr robot</a></strong><br>
+			    </div>
 			</p>
 
 		    </div>
 		    <div id="gallery" style="display:none">
+			<br>
 			<p>Here is a gallery of the profile pictures and wallpapers I have used in the past or still use. I do not own these images.</p>
 			<h2>profile pictures</h2>
 			<img style="height: 100px" src="ran.jpg">
@@ -107,8 +151,17 @@
 			
 		    </div>
 		    <div id="projects1" style="display:none">
+			<br>
 			<p>These are some of my more interesting projects.</p>
 			<br>
+
+			<strong><a href="https://github.com/lambdanil/neocities">neocities</a></strong>
+			<br><br>
+			<div class="box">
+			    Yep, it's this website's code. Horribly written mix of html, css and some javascript. 
+			</div>
+			<br><br>
+			
 			<strong><a href="https://github.com/lambdanil/emacs-stuff">system config</a></strong>
 			<br><br>
 			<div class="box">
@@ -116,6 +169,7 @@
 			    my Emacs config.
 			</div>
 			<br><br>
+			
 			<strong><a href="https://github.com/lambdanil/astOS">astOS</a></strong>
 			<br><br>
 			<div class="box">
@@ -123,56 +177,106 @@
 			    It is currently unmaintained.
 			</div>
 			<br><br>
+
+			<strong><a href="https://github.com/lambdanil/wordle-solver">wordle solver</a></strong>
+			<br><br>
+			<div class="box">
+			    Exactly what it sounds like. A CLI driven wordle solving bot. Extremely small and written in python.<br><br>
+			    Sadly the dictionary I use isn't perfectly 1:1 with the full wordle dictionary, so it doesn't figure out some words :/.
+			</div>
+			<br><br>
+
+			<br><br>
+			<!-- I'm a true master of webdev. -->
+			<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+			<a href="#" style="float: right;" onclick="return show_projectpage('2');">next page >></a>
+		    </div>
+		    <div id="projects2" style="display:none">
+			<br>
+			
 			<strong><a href="https://github.com/lambdanil/not-clos">not-clos</a></strong>
 			<br><br>
 			<div class="box">
 			    An OOP implementation for Common Lisp, made entirely using macros. It is very slow and impractical, but was a fun programming exercise.
 			</div>
-			<br><br><br><br><br>
-			<a href="#" onclick="return show_projectpage('1', '2');">next page >></a>
-		    </div>
-		    <div id="projects2" style="display:none">
-			<p>These are some of my more interesting projects.</p>
-			<br>
-			
-			<strong><a href="https://github.com/lambdanil/wordle-solver">wordle solver</a></strong>
-			<br><br>
-			<div class="box">
-			    Exactly what it sounds like. A small, CLI driven wordle solving bot. Extremely small and written in python.<br><br>
-			    Sadly the dictionary I use isn't perfectly 1:1 with the full wordle dictionary, so it doesn't figure out some words :/.
-			</div>
-			<br><br>
 			
 			
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			<a href="#" onclick="return show_projectpage('2', '1');">previous page <<</a>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<a href="#" onclick="return show_projectpage('1');"><< previous page</a>
 		    </div>
                 </main>
                 
-		<aside id="rightSidebar" style="margin-left: 0px;"><h2>links<br></h2>
+		<aside id="rightSidebar" style="margin-left: 0px;">
+		    <h2>links 📎<br></h2>
 		    <div class="box">
 			<a href="https://lambdanil.neocities.org">homepage</a><br>
 			<a href="https://github.com/lambdanil">github</a><br>
 			<a href="https://last.fm/user/lambdanil">last.fm</a><br>
 			<a href="https://news.ycombinator.com/user?id=lambdanil">hn</a><br>
 			<a href="https://steamcommunity.com/id/lambdanil/">steam</a><br>
+			<a href="mailto:shadenk30011@gmail.com">email me</a><br>
 		    </div>
-		    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="linuxnow.jpg">
-		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="debian.gif">
+		    <br>
+		    <h2>friends 👯</h2>
+		    <div class="box">
+			<a href="https://abbysoda.neocities.org/">abby</a><br>
+			<a href="https://pageburner.xyz/">doc</a>
+		    </div>
+
+		    <br><br>
+		    <div style="margin-top: auto">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="selblinkie.gif">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="sharing.gif">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="linuxnow.jpg">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="debian.gif">
+		    </div>
 		</aside>
 
 		<aside id="leftSidebar" style="margin-right: 0px;">
-		    <h2>reach me</h2>
+		    <h2>lambdanil ❤️<br></h2>
 		    <div class="box">
-			<strong>discord</strong><br>@lambdanil
-			<strong>signal</strong><br>@lainiwakura.58
+			<strong>names</strong><br>
+			&nbsp;nil, lain, lynn<br>
+			<strong>gender</strong><br>
+			&nbsp;transgirl 🏳️‍⚧️<br>
+			<strong>pronouns</strong><br>
+			&nbsp;she/her<br>
+			<strong>mbti</strong><br>
+			&nbsp;infp<br>
+			<strong>zodiac sign</strong><br>
+			&nbsp;cancer<br>
+			<strong>favorite color</strong><br>
+			&nbsp;purple<br>
+			<strong>fav language</strong><br>
+			&nbsp;scheme<br>
+			<strong>text editor</strong><br>
+			&nbsp;emacs<br>
+			<strong>linux distro</strong><br>
+			&nbsp;debian<br>
+			<strong>languages</strong><br>
+			&nbsp;english<br>
+			&nbsp;czech
 		    </div>
-		    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		    <img src="luvinternet.gif">
-		    <img src="tool.gif">
-		    <img src="chillpill.gif">
-		    <img src="jinkieblinkie.gif">
+		    <br>
+		    <h2>reach me 📩</h2>
+		    <div class="box">
+			<strong>discord</strong><br>&nbsp;@lambdanil
+			<strong>signal</strong><br>&nbsp;@lainiwakura.58
+		    </div>
+
+		    <br><br>
+		    <div style="margin-top: auto">
+			<img src="luvinternet.gif">
+			<img src="nightowl.gif">
+			<img src="lovecats.gif">
+			<img src="tool.gif">
+			<img src="chillpill.gif">
+			<img src="jinkieblinkie.gif">
+		    </div>
 		</aside></div>
             
             <footer id="footer" style="margin-top: 0px;"><strong>(λx . x)nil</strong></footer></div>

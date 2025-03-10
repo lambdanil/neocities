@@ -122,6 +122,10 @@
     }
 }
 
+p {
+    margin: 0;
+}
+
 body {
     /*     font-family: 'Nunito', sans-serif; */
     /* background: linear-gradient(
@@ -134,12 +138,13 @@ body {
        );  */
     font-family: lainfont;
     margin: 0;
+    
     animation: backgroundpulse;
     animation-duration: 36s;
     animation-iteration-count: infinite;
     /*     animation-timing-function: linear; */
     /*     background-size: 120% 120%; */
-    background-size: 6% 12%;
+    background-size: 115px 100px;
     /* you can delete the line below if you'd prefer to not use an image */
     color: #fceaff;
     /*     background-image: var(--body-bg-image); */
@@ -255,6 +260,7 @@ aside {
 main {
     /*     background-color: #43256E; */
     /*     border: 2px solid black; */
+    height: 800px;
     background: linear-gradient(to bottom right, #43256E, #1f0c40);
     flex: 1;
     padding: 22px;
@@ -270,11 +276,15 @@ main {
 #leftSidebar {
     order: 1;
     font-family: lainfont;
+    display: flex;
+    flex-direction: column;
 }
 
 #rightSidebar {
     font-family: lainfont;
     order: 3;
+    display: flex;
+    flex-direction: column;
 }
 
 footer {
@@ -298,6 +308,13 @@ h3 {
 
 h1 {
     font-size: 25px;
+}
+
+.textpulse {
+    animation: textpulse;
+    display:inline;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
 }
 
 strong {
